@@ -6,10 +6,12 @@ import './quiz.dart';
 import './result.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _MyAppState();
@@ -56,11 +58,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex += 1;
     });
-    if (_questionIndex < _questions.length) {
-      debugPrint('There are more questions!');
-    } else {
-      debugPrint('There are no more questions!');
-    }
   }
 
   void _resetQuiz() {
@@ -68,15 +65,24 @@ class _MyAppState extends State<MyApp> {
       _questionIndex = 0;
       _totalScore = 0;
     });
-    debugPrint('Quiz Reset!');
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Test App",
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+        accentColor: Colors.orange,
+        textTheme: const TextTheme(
+          headline6: TextStyle(fontSize: 22),
+          headline4: TextStyle(fontSize: 28, fontWeight: FontWeight.bold,),
+        ),
+      ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('My First App'),
+          title: const Text('Test App'),
+          backgroundColor: Colors.black87,
         ),
         body: _questionIndex < _questions.length
             ? Quiz(
