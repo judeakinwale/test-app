@@ -3,7 +3,8 @@
    <application
         android:label="test_application"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/test_ic">
+        <!-- android:icon="@mipmap/ic_launcher" -->
         <activity
             android:name=".MainActivity"
             android:exported="true"

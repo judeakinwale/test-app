@@ -84,12 +84,12 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Test App'),
           backgroundColor: Colors.black87,
         ),
-        body: _questionIndex < _questions.length
+        body: SingleChildScrollView(child: _questionIndex < _questions.length
             ? Quiz(
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
                 questions: _questions)
-            : Result(_totalScore, _resetQuiz),
+            : Result(_totalScore, _resetQuiz)),
       ),
     );
   }
